@@ -100,7 +100,6 @@ export default function Command() {
                   title="Open Extension Preferences"
                   icon={Icon.Gear}
                   onAction={openExtensionPreferences}
-                  shortcut={{ modifiers: ["cmd"], key: "," }}
                 />
               </ActionPanel>
             }

@@ -54,6 +54,11 @@ export interface ServiceWithProject extends Service {
   projectName: string;
 }
 
+export interface LogEntry {
+  message: string;
+  createdAt: string;
+}
+
 export function isRepositoryDeployment(
   deployment: RepositoryDeployment | ImageDeployment,
 ): deployment is RepositoryDeployment {

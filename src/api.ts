@@ -1,5 +1,5 @@
 import { getPreferenceValues } from "@raycast/api";
-import { Preferences, Project, Service, ServiceWithProject } from "./types";
+import { LogEntry, Preferences, Project, Service, ServiceWithProject } from "./types";
 
 const BASE_URL = "https://ctrl.sliplane.io";
 
@@ -28,6 +28,10 @@ export async function getProjects(): Promise<Project[]> {
 
 export async function getServices(projectId: string): Promise<Service[]> {
   return apiFetch<Service[]>(`/v0/projects/${projectId}/services`);
+}
+
+export async function getServiceLogs(projectId: string, serviceId: string): Promise<LogEntry[]> {
+  return apiFetch<LogEntry[]>(`/v0/projects/${projectId}/services/${serviceId}/logs`);
 }
 
 export async function getAllServices(): Promise<ServiceWithProject[]> {

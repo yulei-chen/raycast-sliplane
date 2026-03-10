@@ -1,4 +1,6 @@
 import { Action, ActionPanel, Color, Detail, Icon } from "@raycast/api";
+import { usePromise } from "@raycast/utils";
+import { getServiceLogs } from "./api";
 import { ServiceWithProject, isRepositoryDeployment } from "./types";
 
 const statusColors: Record<string, Color> = {
@@ -25,20 +27,26 @@ export default function ServiceDetail({ service }: { service: ServiceWithProject
   const isRepo = isRepositoryDeployment(service.deployment);
   const primaryDomain = getPrimaryDomain(service);
 
-  const markdown = `# ${service.name}
+  const { data: logs, isLoading } = usePromise(getServiceLogs, [service.projectId, service.id]);
 
-**Project:** ${service.projectName}
-**Status:** ${service.status}
+  const logsMarkdown = isLoading
+    ? "Loading logs..."
+    : logs && logs.length > 0
+      ? "```\n" +
+        logs
+          .map((l) => {
+            const time = new Date(l.createdAt).toLocaleString();
+            return `[${time}] ${l.message}`;
+          })
+          .join("") +
+        "\n```"
+      : "_No logs available._";
 
-## Deployment
-${isRepo ? `**Repository:** ${service.deployment.url}` : `**Image:** ${service.deployment.url}`}
-${isRepo && "branch" in service.deployment && service.deployment.branch ? `**Branch:** ${service.deployment.branch}` : ""}
-
-${primaryDomain ? `## Domain\n[${primaryDomain}](${getDomainUrl(primaryDomain, service.network.protocol)})` : ""}
-`;
+  const markdown = `# ${service.name}\n\n${logsMarkdown}`;
 
   return (
     <Detail
+      isLoading={isLoading}
       markdown={markdown}
       metadata={
         <Detail.Metadata>
