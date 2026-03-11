@@ -47,7 +47,5 @@ export async function getAllServices(): Promise<ServiceWithProject[]> {
     }),
   );
 
-  return servicesPerProject
-    .flat()
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  return servicesPerProject.flat().sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }

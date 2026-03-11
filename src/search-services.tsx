@@ -30,7 +30,11 @@ function getDomainUrl(domain: string, protocol?: string): string {
 export default function Command() {
   const [page, setPage] = useState(1);
 
-  const { data: services, isLoading, error } = usePromise(getAllServices, [], {
+  const {
+    data: services,
+    isLoading,
+    error,
+  } = usePromise(getAllServices, [], {
     onError: async (err) => {
       await showToast({
         style: Toast.Style.Failure,
@@ -77,11 +81,7 @@ export default function Command() {
             ]}
             actions={
               <ActionPanel>
-                <Action.Push
-                  title="View Details"
-                  icon={Icon.Eye}
-                  target={<ServiceDetail service={service} />}
-                />
+                <Action.Push title="View Details" icon={Icon.Eye} target={<ServiceDetail service={service} />} />
                 {domain && (
                   <Action.OpenInBrowser
                     title="Open Domain"
@@ -96,11 +96,7 @@ export default function Command() {
                     shortcut={{ modifiers: ["cmd", "shift"], key: "c" }}
                   />
                 )}
-                <Action
-                  title="Open Extension Preferences"
-                  icon={Icon.Gear}
-                  onAction={openExtensionPreferences}
-                />
+                <Action title="Open Extension Preferences" icon={Icon.Gear} onAction={openExtensionPreferences} />
               </ActionPanel>
             }
           />

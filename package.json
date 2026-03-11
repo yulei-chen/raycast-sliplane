@@ -19,6 +19,20 @@
       "title": "Search Services",
       "description": "Search and browse your Sliplane services across all projects.",
       "mode": "view"
+    },
+    {
+      "name": "search-blog",
+      "title": "Search Blog Posts",
+      "description": "Open the Sliplane blog, optionally filtered by a keyword.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "keyword",
+          "type": "text",
+          "placeholder": "Keyword",
+          "required": false
+        }
+      ]
     }
   ],
   "preferences": [

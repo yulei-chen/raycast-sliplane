@@ -57,10 +57,7 @@ export default function ServiceDetail({ service }: { service: ServiceWithProject
             />
           </Detail.Metadata.TagList>
           <Detail.Metadata.Label title="Project" text={service.projectName} />
-          <Detail.Metadata.Label
-            title="Created"
-            text={new Date(service.createdAt).toLocaleDateString()}
-          />
+          <Detail.Metadata.Label title="Created" text={new Date(service.createdAt).toLocaleDateString()} />
           <Detail.Metadata.Separator />
           <Detail.Metadata.Label title="Deployment Type" text={isRepo ? "Repository" : "Image"} />
           <Detail.Metadata.Label title="Source" text={service.deployment.url} />
@@ -69,9 +66,7 @@ export default function ServiceDetail({ service }: { service: ServiceWithProject
           )}
           <Detail.Metadata.Separator />
           <Detail.Metadata.Label title="Public" text={service.network.public ? "Yes" : "No"} />
-          {service.network.protocol && (
-            <Detail.Metadata.Label title="Protocol" text={service.network.protocol} />
-          )}
+          {service.network.protocol && <Detail.Metadata.Label title="Protocol" text={service.network.protocol} />}
           {service.network.managedDomain && (
             <Detail.Metadata.Link
               title="Managed Domain"
