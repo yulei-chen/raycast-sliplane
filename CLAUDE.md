@@ -13,8 +13,7 @@
 src/
   types.ts              — TypeScript interfaces for API models
   api.ts                — API client (fetch wrapper + endpoint functions)
-  search-services.tsx   — Main command: searchable list of services
-  service-detail.tsx    — Detail view component pushed from the list
+  search-services.tsx   — Main command: searchable list of services with inline metadata panel
   search-blog.tsx       — No-view command: opens Sliplane blog with optional keyword search
 package.json            — Extension config, preferences, and dependencies
 ```
