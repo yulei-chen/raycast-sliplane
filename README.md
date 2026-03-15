@@ -9,8 +9,7 @@ You will need to have [Node.js](https://nodejs.org) and [npm](https://www.npmjs.
 1. Clone this repo `git clone https://github.com/yulei-chen/raycast-sliplane`
 2. Go to the folder `cd raycast-sliplane`
 3. Install dependencies `npm install`
-4. Go to Raycast, run `Import Extension` and select the folder
-5. Start the dev server `npm run dev`
+4. Build and import to Raycast `npm run dev` (you can stop the dev server afterwards)
 
 ## Setup
 
