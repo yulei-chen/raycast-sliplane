@@ -6,6 +6,13 @@
 
 You will need to have [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com/) installed.
 
+```bash
+git clone https://github.com/yulei-chen/raycast-sliplane
+cd raycast-sliplane
+npm install
+npm run dev
+```
+
 1. Clone this repo `git clone https://github.com/yulei-chen/raycast-sliplane`
 2. Go to the folder `cd raycast-sliplane`
 3. Install dependencies `npm install`
