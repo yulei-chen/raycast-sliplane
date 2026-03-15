@@ -1,4 +1,4 @@
-# Sliplane
+# Raycast Sliplane
 
 [Sliplane](https://sliplane.io) is a simple container hosting platform that lets you deploy Docker containers and Git repositories in seconds. It provides managed domains, automatic HTTPS, custom domains, internal networking, and a clean dashboard to monitor your running services across multiple projects.
 
